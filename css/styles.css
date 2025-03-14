@@ -1,0 +1,39 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1, h2, h3, h4, h5,
+.h2 {
+  font-family: "Playfair Display", serif;
+}
+
+.active {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+#category-filters li {
+  cursor: pointer;
+}
+
+.rating {
+  height: 2rem;
+  font-family: FontAwesome;
+  letter-spacing: 5px;
+}
+
+[data-rating="1"]:before {
+  content: "\f004";
+}
+[data-rating="2"]:before {
+  content: "\f004 \f004";
+}
+[data-rating="3"]:before {
+  content: "\f004 \f004 \f004";
+}
+[data-rating="4"]:before {
+  content: "\f004 \f004 \f004 \f004";
+}
+[data-rating="5"]:before {
+  content: "\f004 \f004 \f004 \f004 \f004";
+}
