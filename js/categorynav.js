@@ -31,13 +31,13 @@ fetch("https://dummyjson.com/products/categories")
 function toggleCategoryList() {
   const categoryFilters = document.getElementById("category-filters");
   categoryFilters.classList.toggle("hidden");
-  let x = categoryFilters.getAttribute("aria-expanded");
+  let x = document.getElementById("sort").getAttribute("aria-expanded");
   if (x == "true") {
     x = "false";
   } else {
     x = "true";
   }
-  categoryFilters.setAttribute("aria-expanded", x);
+  document.getElementById("sort").setAttribute("aria-expanded", x);
 }
 
 // Add click event listener to the <h2> element
