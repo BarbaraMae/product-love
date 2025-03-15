@@ -1,4 +1,4 @@
-// Fetch data from the API
+// Fetch category data from the API
 fetch("https://dummyjson.com/products/categories")
   .then((response) => response.json()) // Convert the response to JSON
   .then((data) => {
@@ -28,4 +28,13 @@ fetch("https://dummyjson.com/products/categories")
     console.error("Error fetching products:", error);
   });
 
+ // Show/Hide the category list when the h2 is clicked
+function toggleCategoryList() {
+  const categoryFilters = document.getElementById("category-filters");
+  categoryFilters.classList.toggle("hidden");
+}
+
+// Add click event listener to the <h2> element
+const header = document.querySelector(".category-header #sort");
+header.addEventListener("click", toggleCategoryList);
 

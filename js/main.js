@@ -4,7 +4,6 @@ function loadProducts(filter) {
   if (filter) {
     apiURL = "https://dummyjson.com/products/category/" + filter;
   }
-  console.log(apiURL + "?limit=0");
 
   // Fetch data from the API
   fetch(apiURL)
@@ -76,10 +75,16 @@ function handleCategoryClick(event) {
 
   //Get category slug from data attribute on clicked button
   const slug = event.target.getAttribute('data-slug');
-  console.log(slug);
 
   // reload with products from selected category
   loadProducts(slug);
+
+  // Collapse the category listings
+  toggleCategoryList();
+
+  // Change breadcrumbs to show current category name
+  const name = event.target.textContent;
+  document.getElementById('category-name').textContent = name;
 }
 
 // Add event listeners to all the <li> elements inside the #category-filters
