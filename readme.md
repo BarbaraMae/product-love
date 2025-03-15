@@ -2,6 +2,8 @@
 
 Things to Love is a page showcasing products from the [Dummy JSON API](https://dummyjson.com/)
 
+View it live at: [https://barbaramae.github.io/product-love/](https://barbaramae.github.io/product-love/)
+
 ## Third-Party Libraries
 
 Things to Love uses the current version of Tailwind, Font Awesome 6.7 and Google Fonts all linked from a CDN.
@@ -14,9 +16,7 @@ The buy now button is customized according to inventory levels. Products with an
 
 - Add css transitions to the show/hide events.
 
-- Sort by category click event is not accessible with keyboard events.
-
-- Convert category buttons to dropdown list on mobile.
+- Convert category buttons to dropdown list on mobile. Currently the list is limited to 260px height and can be scrolled.
 
 - Troubleshoot the flex formatting on the individual products. Ideally the top of the product title and the bottom of the buy now button would all line up. The buy now buttons vary a bit on placement and should be revised.
 
