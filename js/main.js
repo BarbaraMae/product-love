@@ -62,38 +62,4 @@ function loadProducts(filter) {
     });
 }
 
-// Function to handle adding/removing the 'active' class
-function handleCategoryClick(event) {
-  // Get all the <li> elements inside the #category-filters
-  const listItems = document.querySelectorAll('#category-filters li');
-
-  // Remove the 'active' class from all <li> elements
-  listItems.forEach(item => item.classList.remove('active'));
-
-  // Add the 'active' class to the clicked <li>
-  event.target.classList.add('active');
-
-  //Get category slug from data attribute on clicked button
-  const slug = event.target.getAttribute('data-slug');
-
-  // reload with products from selected category
-  loadProducts(slug);
-
-  // Collapse the category listings
-  toggleCategoryList();
-
-  // Change breadcrumbs to show current category name
-  const name = event.target.textContent;
-  document.getElementById('category-name').textContent = name;
-}
-
-// Add event listeners to all the <li> elements inside the #category-filters
-const categoryFilters = document.getElementById('category-filters');
-categoryFilters.addEventListener('click', function(event) {
-  // Only handle clicks on <li> elements (ignore other elements inside the <ul>)
-  if (event.target.tagName === 'LI') {
-    handleCategoryClick(event);
-  }
-});
-
 loadProducts();
