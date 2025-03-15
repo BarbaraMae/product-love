@@ -4,7 +4,6 @@ fetch("https://dummyjson.com/products/categories")
   .then((data) => {
     // Get the list of products from the response
     const categories = data;
-    console.log(categories);
 
     // Get the container element where the category links will be displayed
     const categoryFilters = document.getElementById("category-filters");
@@ -28,3 +27,5 @@ fetch("https://dummyjson.com/products/categories")
     // Handle any errors that occur during the fetch request
     console.error("Error fetching products:", error);
   });
+
+
