@@ -16,9 +16,13 @@ The buy now button is customized according to inventory levels. Products with an
 
 - Sort by category click event is not accessible with keyboard events.
 
+- Convert category buttons to dropdown list on mobile.
+
 - Troubleshoot the flex formatting on the individual products. Ideally the top of the product title and the bottom of the buy now button would all line up. The buy now buttons vary a bit on placement and should be revised.
 
 - Most accessiblity requirements are met. However, since the products are loaded through JS, the automated checker thinks the product ul is empty. Investigate a solution.
+
+- Change out of stock message to link to collect email for notification when back in stock.
 
 ## Contributors
 

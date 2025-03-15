@@ -20,17 +20,21 @@ function loadProducts(filter) {
       products.forEach((product) => {
         // Round off ratings for easier display
         const roundedRating = Math.round(product.rating);
+        
         let buyButton = "";
         //Create buy button depending on availability status
         if (product.availabilityStatus === "Low Stock") {
           // if product is low in change buyButton Message
           buyButton = `<button href="#" class="w-full bg-pink-300 hover:bg-pink-700  text-black hover:text-white rounded-md px-4 py-4 flex-none">Running low, order now!</button>`;
         } else if (product.availabilityStatus === "In Stock") {
+          // if available and normal inventory, show Add to Cart
           buyButton = `<button href="#" class="w-full bg-pink-300 hover:bg-pink-700 text-black hover:text-white rounded-md px-4 py-4 flex-none">Add to cart</button>`;
         } else {
-          buyButton = `<div class="w-full bg-gray-20 text-black rounded-md px-4 py-4 flex-none">Out of stock. Check back soon!</div>`;
+          // 'out of stock' message, button disabled
+          buyButton = `<button disabled class="w-full bg-gray-200 text-black rounded-md px-4 py-4 flex-none">Out of stock. Check back soon!</button>`;
         }
 
+        // Create individual product listing and add it to the grid container
         productsContainer.insertAdjacentHTML(
           "beforeend",
           `
@@ -62,4 +66,5 @@ function loadProducts(filter) {
     });
 }
 
+// Initial load of "all" products without a filter
 loadProducts();
