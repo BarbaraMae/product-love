@@ -1,9 +1,18 @@
+let currentPage = 1;
+const resultsPerPage = 30;
+let isLoading = false;
+let hasMoreProducts = true;
+
 // Function to load products from the API
-function loadProducts(filter) {
-  let apiURL = "https://dummyjson.com/products?limit=50";
-  if (filter) {
-    apiURL = "https://dummyjson.com/products/category/" + filter;
+function loadProducts(page, filter) {
+  let apiURL = "https://dummyjson.com/products";
+  if (page) {
+    apiURL = `${apiURL}?limit=${resultsPerPage}&skip=${(page - 1) * resultsPerPage}`;
   }
+  if (filter) {
+    apiURL = `${apiURL}/category/${filter}?limit=${resultsPerPage}&skip=${(page - 1) * resultsPerPage}`;
+  }
+  console.log(apiURL);
 
   // Fetch data from the API
   fetch(apiURL)
@@ -65,6 +74,33 @@ function loadProducts(filter) {
       console.error("Error fetching products:", error);
     });
 }
+
+// Function to load more data when the user scrolls to the bottom
+async function loadMoreProducts() {
+  if (isLoading || !hasMoreProducts) return;
+
+  isLoading = true;
+  document.getElementById('loading').style.display = 'block'; // Show loading spinner
+  
+  const data = await fetchData(currentPage);
+  if (data && data.length > 0) {
+    renderItems(data);
+    currentPage++;
+  } else {
+    hasMoreData = false; // No more data to load
+  }
+  
+  document.getElementById('loading').style.display = 'none'; // Hide loading spinner
+  isLoading = false;
+}
+
+// Event listener for scroll
+window.addEventListener('scroll', () => {
+  // Check if we're at the bottom of the page
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+    loadMoreProducts();
+  }
+});
 
 // Initial load of "all" products without a filter
 loadProducts();

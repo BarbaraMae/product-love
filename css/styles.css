@@ -44,3 +44,9 @@ h5,
 [data-rating="5"]:before {
   content: "\f004 \f004 \f004 \f004 \f004";
 }
+
+#loading {
+  text-align: center;
+  margin: 20px;
+  display: none;
+}
